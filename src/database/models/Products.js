@@ -1,3 +1,5 @@
+//let db = require("./index")
+
 module.exports = (sequelize,dataTypes)=>{
     let alias = "Products"
     let cols = {
@@ -19,17 +21,31 @@ module.exports = (sequelize,dataTypes)=>{
             allowNull: false
         },
         //TEMPORALES, cuando se vea asociaciones los voy a borrar
-        category_id: {
+/*         category_id: {
             type: dataTypes.INTEGER
         },
         image_id: {
             type: dataTypes.INTEGER
-        }
+        } */
     }
     let config = {
         tableName: "products",
         timestamps: false
     }
     const Products = sequelize.define(alias,cols,config)
+    
+    Products.associate = (models) => {
+        /*  models.Categories.hasMany(Products, {
+             foreignKey: 'category_id'
+         }) */
+         Products.belongsTo(models.Categories, { foreignKey: 'category_id' })
+     
+        /*  models.Images.hasMany(Products, {
+             foreignKey: 'image_id'
+         }) */
+         Products.belongsTo(models.Images, { foreignKey: 'image_id' })
+     }
+
+   
     return Products
 }

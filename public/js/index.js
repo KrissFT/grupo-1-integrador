@@ -74,7 +74,6 @@ async function cargarProductos(){
     })
     ul.appendChild(createButton);
 
-    // No funciona, requiere edición
     products.forEach(function(product){
         let li = document.createElement('li');
 
@@ -92,6 +91,11 @@ async function cargarProductos(){
         let spanPrice = document.createElement('span');
         spanPrice.innerHTML = ` $${product.price}`;
         li.appendChild(spanPrice);
+
+        // Categoría
+        let spanCategory = document.createElement('span');
+        spanCategory.innerHTML = ` ${product.Category.name}`;
+        li.appendChild(spanCategory);
 
         // Icono editar
         let iEditar = document.createElement('i');
