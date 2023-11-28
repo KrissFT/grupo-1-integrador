@@ -2,12 +2,9 @@ let db = require("../database/models/index");
 let panes = require("../data/panes");
 const service = {
     listarPanes:async () => {
-/*         await db.sequelize.sync({ alter: true })
-        console.log("intento de sync") */
         let productos = await db.Products.findAll({
             include: [{
-                model: db.Categories,
-                atrributes: 'name'
+                model: db.Categories
             }]
         })
         return productos
