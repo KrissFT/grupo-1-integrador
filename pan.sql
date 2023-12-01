@@ -9,20 +9,13 @@ CREATE TABLE categories (
 );
 INSERT INTO categories (name) VALUES ('Panadería'),('Facturería');
 
-CREATE TABLE images (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
-);
-INSERT INTO images (name) VALUES ('/public/img/pan.png');
-
 CREATE TABLE products (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     category_id INT UNSIGNED NOT NULL,
     price INT NOT NULL,
     description VARCHAR(255) NOT NULL,
-    image_id INT UNSIGNED NOT NULL,
-    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL ON UPDATE CASCADE,
-    FOREIGN KEY (image_id) REFERENCES images(id) ON DELETE SET NULL ON UPDATE CASCADE
+    image VARCHAR(255) NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES categories(id)
 );
-INSERT INTO products (name, category_id, price, description, image_id) VALUES ('Pan 1', 1, 100, 'Descripción 1',1),('Pan 2', 1, 200, 'Descripción 2',1),('Pan 3', 1, 200, 'Descripción 3',1),('Pan 4', 1, 200, 'Descripción 4',1),('Pan 5', 2, 200, 'Descripción 5',1);
+INSERT INTO products (name, category_id, price, description, image) VALUES ('Pan 1', 1, 100, 'Descripción 1','pan.png'),('Pan 2', 1, 200, 'Descripción 2','pan.png'),('Pan 3', 1, 200, 'Descripción 3','pan.png'),('Pan 4', 1, 200, 'Descripción 4','pan.png'),('Pan 5', 2, 200, 'Descripción 5','pan.png');

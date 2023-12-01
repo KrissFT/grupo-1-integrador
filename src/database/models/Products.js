@@ -20,13 +20,10 @@ module.exports = (sequelize,dataTypes)=>{
             type: dataTypes.INTEGER, 
             allowNull: false
         },
-        //TEMPORALES, cuando se vea asociaciones los voy a borrar
-/*         category_id: {
-            type: dataTypes.INTEGER
-        },
-        image_id: {
-            type: dataTypes.INTEGER
-        } */
+        image: {
+            type: dataTypes.STRING,
+            allowNull: false
+        }
     }
     let config = {
         tableName: "products",
@@ -43,7 +40,7 @@ module.exports = (sequelize,dataTypes)=>{
         /*  models.Images.hasMany(Products, {
              foreignKey: 'image_id'
          }) */
-         Products.belongsTo(models.Images, { foreignKey: 'image_id' })
+/*          Products.belongsTo(models.Images, { foreignKey: 'image_id' }) */
      }
 
    

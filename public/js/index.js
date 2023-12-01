@@ -73,9 +73,43 @@ async function cargarProductos(){
         ul.appendChild(div);
     })
     ul.appendChild(createButton);
-
+    
     products.forEach(function(product){
         let li = document.createElement('li');
+
+        let inputImg = document.createElement("input");
+        inputImg.setAttribute("name", "image");
+        inputImg.setAttribute("type", "file");
+        inputImg.style.display = "none";
+        inputImg.setAttribute("id", "image-input-"+product.id);
+        inputImg.addEventListener("change", async() => {
+            let formData = new FormData();
+            formData.append("image",inputImg.files[0])
+
+            await fetch('/productos/'+product.id, {
+                method: "PATCH",
+                //headers:{
+                //    "Content-Type": "application/json" // formencode
+                //},
+                body: formData
+            })
+            cargarProductos();
+        })
+        li.appendChild(inputImg);
+
+        let labelImg = document.createElement("label");
+        labelImg.setAttribute("for", "image-input-"+product.id)
+        if (product.image && product.image != "default.png") {
+            let img = document.createElement("img")
+            img.src = "/img/productos/"+product.image;
+            labelImg.appendChild(img);
+        } else {
+            let spanVacio = document.createElement("span");
+            spanVacio.innerHTML = "Subir imagen";
+
+            labelImg.appendChild(spanVacio)
+        }
+        li.appendChild(labelImg);
 
         // ID
         let spanId = document.createElement('span');

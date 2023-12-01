@@ -12,3 +12,9 @@ app.use(express.json())
 
 const mainRouter = require('./routes/main-router');
 app.use(mainRouter);
+
+const productsRouter = require('./routes/products-router');
+app.use('/products',productsRouter);
+
+const categoriesRouter = require('./routes/categories-router');
+app.use('/categories',categoriesRouter);

@@ -50,7 +50,27 @@ const service = {
                 id: id
             }
         })
-    }
+    },
+    uploadImage: async (id, data) => {
+        let newData = {
+            image: data.image
+        };
+
+        // newData.images.forEach((image) => {
+        //     Image.create({
+        //         name: image.filename,
+        //         product_id: id
+        //     })
+        // })
+
+        let resultado = Products.update(newData, {
+            where: {
+                id: id
+            }
+        });
+
+        return resultado;
+    } // U
 };
 
 module.exports = service
