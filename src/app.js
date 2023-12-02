@@ -17,4 +17,4 @@ const productsRouter = require('./routes/products-router');
 app.use(productsRouter);
 
 const categoriesRouter = require('./routes/categories-router');
-app.use('/categories',categoriesRouter);
+app.use(categoriesRouter);
