@@ -30,7 +30,7 @@ const controller = {
         let newData = {
             image: req.file.filename
         }
-        let resultado = await Products.uploadImage(id, newData);
+        let resultado = await products.uploadImage(id, newData);
         if (resultado > 0) {
             res.send("Edición exitosa");
         } else {

@@ -22,7 +22,7 @@ const service = {
         let panACrear = {
             name: data.name,
             category_id: data.category_id,
-            image_id: data.image_id,
+            image: data.image,
             description: data.description,
             price: data.price
         }
@@ -63,7 +63,7 @@ const service = {
         //     })
         // })
 
-        let resultado = Products.update(newData, {
+        let resultado = db.Products.update(newData, {
             where: {
                 id: id
             }

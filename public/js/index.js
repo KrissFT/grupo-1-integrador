@@ -86,7 +86,7 @@ async function cargarProductos(){
             let formData = new FormData();
             formData.append("image",inputImg.files[0])
 
-            await fetch('/productos/'+product.id, {
+            await fetch('/api/productos/'+product.id, {
                 method: "PATCH",
                 //headers:{
                 //    "Content-Type": "application/json" // formencode
@@ -101,7 +101,7 @@ async function cargarProductos(){
         labelImg.setAttribute("for", "image-input-"+product.id)
         if (product.image && product.image != "default.png") {
             let img = document.createElement("img")
-            img.src = "/img/productos/"+product.image;
+            img.src = "/img/products/"+product.image;
             labelImg.appendChild(img);
         } else {
             let spanVacio = document.createElement("span");

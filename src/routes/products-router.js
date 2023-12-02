@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express');
 const router = express.Router();
 const productsController = require('../controllers/products-crontroller')
@@ -30,7 +31,7 @@ router.get(url+'/productos'+'/:id', productsController.apiProductDetail);
 router.post(url+'/productos', productsController.apiProductCreate);
 
 router.put(url+'/productos'+'/:id',productsController.apiProductUpdate)
-router.patch(url+'/productos/:id', upload.single("image"), mainController.productUploadImage);
+router.patch(url+'/productos/:id', upload.single("image"), productsController.productUploadImage);
 
 router.delete(url+'/productos'+'/:id', productsController.apiProductDelete)
 
