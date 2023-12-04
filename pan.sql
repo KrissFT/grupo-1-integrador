@@ -5,7 +5,8 @@ USE pan_db;
 
 CREATE TABLE categories (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    name VARCHAR(255) NOT NULL,
+    image VARCHAR(255)
 );
 INSERT INTO categories (name) VALUES ('Panadería'),('Facturería');
 

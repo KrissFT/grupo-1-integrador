@@ -44,33 +44,22 @@ async function cargarProductos(){
         let inputPrice = document.createElement("input"); // Name, type y id
         div.appendChild(inputPrice);
 
-        //NO TOQUEN EL VALOR DE CATEGORY E IMAGE
-        //Esto está puesto con cinta para que no crashee el servidor cuando nos enseñen associations lo edito
-        //Además las imágenes seguro que hay que cargarlas aparte y editar el servicio de create
+        //Categoría
         let labelCategory = document.createElement("label")
         labelCategory.setAttribute("for", "categories")
         let selectCategory = document.createElement("select")
         selectCategory.setAttribute("id", "categories")
         selectCategory.setAttribute("name", "categories")
-        let optionCategory1 = document.createElement("option")
-        optionCategory1.setAttribute("value", "1")
-        optionCategory1.innerHTML = "Panadería"
-        let optionCategory2 = document.createElement("option")
-        optionCategory2.setAttribute("value", "2")
-        optionCategory2.innerHTML = "Facturería"
 
         div.appendChild(labelCategory)
-        div.appendChild(selectCategory)
-        selectCategory.appendChild(optionCategory1)
-        selectCategory.appendChild(optionCategory2)
-        /* 
-        let inputCategory = document.createElement("input"); // Name, type y id
-        inputCategory.value =1
-        div.appendChild(inputCategory); */
+        categories.forEach((category)=>{
+            let categoryOption = document.createElement("option");
+            categoryOption.value = category.id;
+            categoryOption.innerHTML = category.name;
+            selectCategory.appendChild(categoryOption);
+        })
+        div.appendChild(selectCategory);
 
-/*         let inputImage = document.createElement("input"); // Name, type y id
-        inputImage.value = "pan.png"
-        div.appendChild(inputImage); */
 
         let inputImg = document.createElement("input");
         inputImg.setAttribute("name", "image");
@@ -83,8 +72,6 @@ async function cargarProductos(){
         let spanVacio = document.createElement("span");
         spanVacio.innerHTML = "Subir imagen";
 
-        /* let formData = new FormData();
-        formData.append("image",inputImg.files[0]) */
 
         labelImg.appendChild(spanVacio)
         div.appendChild(labelImg);
@@ -132,15 +119,6 @@ async function cargarProductos(){
                 //},
                 body: formData
             })
-
-/*             await fetch('/api/productos/'+product.id, {
-                method: "PATCH",
-                //headers:{
-                //    "Content-Type": "application/json" // formencode
-                //},
-                body: formData
-            }) */
-
             cargarProductos();
         })
         div.appendChild(boton);
@@ -148,6 +126,9 @@ async function cargarProductos(){
         ul.appendChild(div);
     })
     ul.appendChild(createButton);
+
+
+
     
     products.forEach(function(product){
         let li = document.createElement('li');
@@ -213,13 +194,57 @@ async function cargarProductos(){
             let div = document.createElement("div");
             div.className = 'formulario';
 
+            let labelNombre = document.createElement("label")
+            labelNombre.innerHTML = "Nombre: "
+            div.appendChild(labelNombre)
+    
             let inputNombre = document.createElement("input"); // Name, type y id
             inputNombre.value = product.name;
             div.appendChild(inputNombre);
-
+    
+            let labelDescription = document.createElement("label")
+            labelDescription.innerHTML = "Descripción: "
+            div.appendChild(labelDescription)
+    
+            let inputDescription = document.createElement("input"); // Name, type y id
+            inputDescription.value = product.description;
+            div.appendChild(inputDescription);
+    
+            let labelPrice = document.createElement("label")
+            labelPrice.innerHTML = "Precio: "
+            div.appendChild(labelPrice)
+    
             let inputPrice = document.createElement("input"); // Name, type y id
             inputPrice.value = product.price;
             div.appendChild(inputPrice);
+    
+            //Categoría
+            let labelCategory = document.createElement("label")
+            labelCategory.setAttribute("for", "categories")
+            let selectCategory = document.createElement("select")
+            selectCategory.setAttribute("id", "categories")
+            selectCategory.setAttribute("name", "categories")
+    
+            div.appendChild(labelCategory)
+            let optionDefault = document.createElement("option")
+            optionDefault.value = product.Category.id
+            optionDefault.innerHTML = product.Category.name
+            selectCategory.appendChild(optionDefault)
+            
+            categories.forEach((category)=>{
+                if(optionDefault.value != category.id){
+                    let categoryOption = document.createElement("option");
+                    categoryOption.value = category.id;
+                    categoryOption.innerHTML = category.name;
+                    selectCategory.appendChild(categoryOption); 
+                }
+
+                /* let categoryOption = document.createElement("option");
+                categoryOption.value = category.id;
+                categoryOption.innerHTML = category.name;
+                selectCategory.appendChild(categoryOption); */
+            })
+            div.appendChild(selectCategory);
 
             let boton = document.createElement("button");
             boton.addEventListener("click", async() => {
@@ -230,8 +255,9 @@ async function cargarProductos(){
                     },
                     body: JSON.stringify({
                         name: inputNombre.value,
+                        description: inputDescription.value,
                         price: inputPrice.value,
-                        category: null
+                        category_id: selectCategory.value
                     })
                 })
                 cargarProductos();

@@ -13,7 +13,10 @@ const service = {
         let pan = await db.Products.findOne({
             where: {
                 id: id
-            }
+            },
+            include: [{
+                model: db.Categories
+            }]
         })
         return pan || {}
     },
@@ -40,9 +43,9 @@ const service = {
     update: async (data,id) => {
         let panAEditar = {
             name: data.name,
-            // category: data.category,
+            category_id: data.category_id,
             description: data.description,
-            precio: data.precio
+            price: data.price
         }     
 
         db.Products.update(panAEditar, {
