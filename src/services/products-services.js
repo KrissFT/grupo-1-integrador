@@ -1,7 +1,7 @@
 let db = require("../database/models/index");
 let panes = require("../data/panes");
 const service = {
-    listarPanes:async () => {
+    findAll:async () => {
         let productos = await db.Products.findAll({
             include: [{
                 model: db.Categories
@@ -9,7 +9,7 @@ const service = {
         })
         return productos
     },
-    buscarPan: async (id) =>{
+    findOne: async (id) =>{
         let pan = await db.Products.findOne({
             where: {
                 id: id

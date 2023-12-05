@@ -5,12 +5,12 @@ let url = '/api'
 
 const controller = {
     apiCategories: async (req,res) => {
-        let categorias = await categories.listarCategorias()
+        let categorias = await categories.findAll()
         res.send(categorias)
     },
     apiCategoryDetail: async (req,res) => {
         const id = req.params.id;
-        let categoriaAEnviar = await categories.buscarCategoria(id)
+        let categoriaAEnviar = await categories.findOne(id)
         res.send(categoriaAEnviar || {});
     },
     apiCategoryCreate: async (req,res) => {

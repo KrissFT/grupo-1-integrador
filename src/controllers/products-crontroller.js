@@ -5,12 +5,12 @@ let url = '/api'
 
 const controller = {
     apiProducts: async (req,res) => {
-        let panes = await products.listarPanes()
+        let panes = await products.findAll()
         res.send(panes);
     },
     apiProductDetail: async (req,res) => {
         const id = req.params.id;
-        let panAEnviar = await products.buscarPan(id)
+        let panAEnviar = await products.findOne(id)
         res.send(panAEnviar || {});
     },
     apiProductCreate: async (req,res) => {

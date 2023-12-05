@@ -1,7 +1,7 @@
 let db = require("../database/models/index")
 
 const service = {
-    listarCategorias:async () => {
+    findAll:async () => {
         let categorias = await db.Categories.findAll({
             include: [{
                 model: db.Products
@@ -9,7 +9,7 @@ const service = {
         })
         return categorias
     },
-    buscarCategoria: async (id) =>{
+    findOne: async (id) =>{
         let categoria = await db.Categories.findOne({
             where: {
                 id: id
