@@ -287,6 +287,54 @@ async function cargarProductos(){
     return products;
 }
 
+async function cargarProductosCliente(){
+    let data = await fetch('/api/productos');
+    console.log(data)
+    let products = await data.json();
+    console.log(products)
+
+    data = await fetch('/api/categorias');
+    console.log(data)
+    let categories = await data.json();
+    console.log(categories)
+
+    let ul = document.querySelector("ul#productos");
+    ul.innerHTML = "";
+    
+    products.forEach(function(product){
+        let li = document.createElement('li');
+
+        let img = document.createElement("img");
+        img.src = "/img/products/"+product.image;
+        li.appendChild(img);
+
+        // ID
+        let spanId = document.createElement('span');
+        spanId.innerHTML = `${product.id} - `;
+        li.appendChild(spanId);
+        
+        // Nombre
+        let spanName = document.createElement('span');
+        spanName.innerHTML = product.name;
+        li.appendChild(spanName);
+
+        // Precio
+        let spanPrice = document.createElement('span');
+        spanPrice.innerHTML = ` $${product.price}`;
+        li.appendChild(spanPrice);
+
+        // Categoría
+        let spanCategory = document.createElement('span');
+        spanCategory.innerHTML = ` ${product.Category.name}`;
+        li.appendChild(spanCategory);
+
+        ul.appendChild(li);
+    })
+
+
+    return products;
+}
+
 window.addEventListener("load", async()=>{
     let products = await cargarProductos();
     console.log(products);
