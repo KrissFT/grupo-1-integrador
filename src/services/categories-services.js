@@ -20,6 +20,17 @@ const service = {
         })
         return categoria || {}
     },
+    findOnebyName: async (name) =>{
+        let categoria = await db.Categories.findOne({
+            where: {
+                name: name
+            },
+            include: [{
+                model: db.Products
+            }]
+        })
+        return categoria || {}
+    },
     //create
     create: async (data) =>{
         let categoriaACrear = {

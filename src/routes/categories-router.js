@@ -27,6 +27,7 @@ let url = '/api'
 
 router.get(url+'/categorias', categoriesController.apiCategories);
 router.get(url+'/categorias'+'/:id', categoriesController.apiCategoryDetail);
+router.get(url+'/:name', categoriesController.apiCategoryDetailName);
 
 router.post(url+'/categorias', categoriesController.apiCategoryCreate);
 

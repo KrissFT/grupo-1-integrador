@@ -13,6 +13,11 @@ const controller = {
         let categoriaAEnviar = await categories.findOne(id)
         res.send(categoriaAEnviar || {});
     },
+    apiCategoryDetailName: async (req,res) => {
+        const name = req.params.name;
+        let categoriaAEnviar = await categories.findOnebyName(name)
+        res.send(categoriaAEnviar || {});
+    },
     apiCategoryCreate: async (req,res) => {
         await categories.create(req.body)
 

@@ -17,6 +17,7 @@ async function cargarProductos(){
     let createButton = document.createElement("i");
     createButton.setAttribute("class", "fa-solid fa-plus");
     createButton.addEventListener('click', () => {
+        let imgDetector = false
         let div = document.createElement("div");
         div.className = 'formulario';
 
@@ -25,6 +26,7 @@ async function cargarProductos(){
         div.appendChild(labelNombre)
 
         let inputNombre = document.createElement("input"); // Name, type y id
+        //inputNombre.setAttribute('required', '');
         div.appendChild(inputNombre);
 
         let br = document.createElement("br")
@@ -35,6 +37,7 @@ async function cargarProductos(){
         div.appendChild(labelDescription)
 
         let inputDescription = document.createElement("input"); // Name, type y id
+        //inputDescription.setAttribute('required', '');
         div.appendChild(inputDescription);
 
         let labelPrice = document.createElement("label")
@@ -42,6 +45,8 @@ async function cargarProductos(){
         div.appendChild(labelPrice)
 
         let inputPrice = document.createElement("input"); // Name, type y id
+        inputPrice.setAttribute('type', 'number')
+        //inputPrice.setAttribute('required', '');
         div.appendChild(inputPrice);
 
         //Categoría
@@ -50,6 +55,7 @@ async function cargarProductos(){
         let selectCategory = document.createElement("select")
         selectCategory.setAttribute("id", "categories")
         selectCategory.setAttribute("name", "categories")
+        //selectCategory.setAttribute('required', '');
 
         div.appendChild(labelCategory)
         categories.forEach((category)=>{
@@ -66,6 +72,8 @@ async function cargarProductos(){
         inputImg.setAttribute("type", "file");
         inputImg.style.display = "none";
         inputImg.setAttribute("id", "image-input");
+        inputImg.setAttribute("accept", ".jpg, .png, .jpeg")
+        //inputImg.setAttribute('required', '');
 
         let labelImg = document.createElement("label");
         labelImg.setAttribute("for", "image-input")
@@ -77,49 +85,57 @@ async function cargarProductos(){
         div.appendChild(labelImg);
         div.appendChild(inputImg);
 
+        console.log(imgDetector)
+        inputImg.addEventListener("change", () => {
+            imgDetector = true
+            console.log(imgDetector)
+        })
+
         let boton = document.createElement("button");
         boton.innerHTML = "Crear"
         boton.addEventListener("click", async() => {
-            await fetch('/api/productos', {
-                method: "POST",
-                headers:{
-                    "Content-Type": "application/json" // formencode
-                },
-                body: JSON.stringify({
-                    name: inputNombre.value,
-                    description: inputDescription.value,
-                    price: inputPrice.value,
-                    category_id: selectCategory.value,
-                    image: "pan.png"
+            if(inputNombre.value != "" && inputDescription.value != "" && inputPrice.value != "" && imgDetector != false){
+                await fetch('/api/productos', {
+                    method: "POST",
+                    headers:{
+                        "Content-Type": "application/json" // formencode
+                    },
+                    body: JSON.stringify({
+                        name: inputNombre.value,
+                        description: inputDescription.value,
+                        price: inputPrice.value,
+                        category_id: selectCategory.value,
+                        image: "pan.png"
+                    })
                 })
-            })
-
-            data = await fetch('/api/productos');
-            console.log(data)
-            let products = await data.json();
-            console.log(products)
-
-            let product
-            products.forEach((producto)=>{
-                if(producto.name == inputNombre.value && producto.description == inputDescription.value && producto.image == "pan.png") {
-                    let resultado = producto
-                    console.log(resultado)
-                    product = resultado
-                }
-            })
-
-            console.log(product)
-
-            let formData = new FormData();
-            formData.append("image",inputImg.files[0])
-            await fetch('/api/productos/'+product.id, {
-                method: "PATCH",
-                //headers:{
-                //    "Content-Type": "application/json" // formencode
-                //},
-                body: formData
-            })
-            cargarProductos();
+    
+                data = await fetch('/api/productos');
+                console.log(data)
+                let products = await data.json();
+                console.log(products)
+    
+                let product
+                products.forEach((producto)=>{
+                    if(producto.name == inputNombre.value && producto.description == inputDescription.value && producto.image == "pan.png") {
+                        let resultado = producto
+                        console.log(resultado)
+                        product = resultado
+                    }
+                })
+    
+                console.log(product)
+                let formData = new FormData();
+                formData.append("image",inputImg.files[0])
+                console.log(formData)
+                await fetch('/api/productos/'+product.id, {
+                    method: "PATCH",
+                    //headers:{
+                    //    "Content-Type": "application/json" // formencode
+                    //},
+                    body: formData
+                })
+                cargarProductos();
+            }
         })
         div.appendChild(boton);
         ul.innerHTML = "";
@@ -200,6 +216,7 @@ async function cargarProductos(){
     
             let inputNombre = document.createElement("input"); // Name, type y id
             inputNombre.value = product.name;
+            inputNombre.setAttribute('required', '');
             div.appendChild(inputNombre);
     
             let labelDescription = document.createElement("label")
@@ -208,6 +225,7 @@ async function cargarProductos(){
     
             let inputDescription = document.createElement("input"); // Name, type y id
             inputDescription.value = product.description;
+            inputDescription.setAttribute('required', '');
             div.appendChild(inputDescription);
     
             let labelPrice = document.createElement("label")
@@ -216,6 +234,7 @@ async function cargarProductos(){
     
             let inputPrice = document.createElement("input"); // Name, type y id
             inputPrice.value = product.price;
+            inputPrice.setAttribute('required', '');
             div.appendChild(inputPrice);
     
             //Categoría
@@ -224,6 +243,7 @@ async function cargarProductos(){
             let selectCategory = document.createElement("select")
             selectCategory.setAttribute("id", "categories")
             selectCategory.setAttribute("name", "categories")
+            selectCategory.setAttribute('required', '');
     
             div.appendChild(labelCategory)
             let optionDefault = document.createElement("option")

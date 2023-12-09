@@ -5,7 +5,27 @@ let url = '/api'
 
 const controller = {
     home: (req, res) => {
-        let filepath = path.resolve(__dirname, '../views/home.html')
+        let filepath = path.resolve(__dirname, '../views/index.html')
+        res.sendFile(filepath)
+        // res.redirect(url);
+    },
+    productos: (req, res) => {
+        let filepath = path.resolve(__dirname, '../views/productos.html')
+        res.sendFile(filepath)
+        // res.redirect(url);
+    },
+    panaderia: (req, res) => {
+        let filepath = path.resolve(__dirname, '../views/panaderia.html')
+        res.sendFile(filepath)
+        // res.redirect(url);
+    },
+    pasteleria: (req, res) => {
+        let filepath = path.resolve(__dirname, '../views/pasteleria.html')
+        res.sendFile(filepath)
+        // res.redirect(url);
+    },
+    confiteria: (req, res) => {
+        let filepath = path.resolve(__dirname, '../views/confiteria.html')
         res.sendFile(filepath)
         // res.redirect(url);
     },
