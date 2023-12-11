@@ -43,13 +43,7 @@ async function cargarProductos(){
         botonEditarImg.setAttribute('title','Editar imagen')
         botonEditarImg.setAttribute('type', 'button')
         let iEditarImg = document.createElement('i');
-        iEditarImg.setAttribute('class', 'fa-stack')
-        let iEditarImg1 = document.createElement('i')
-        iEditarImg1.setAttribute('class', 'fas fa-circle fa-stack-2x')
-        let iEditarImg2 = document.createElement('i')
-        iEditarImg2.setAttribute("class", "fas fa-solid fa-image fa-stack-1x fa-inverse");
-        iEditarImg.appendChild(iEditarImg1)
-        iEditarImg.appendChild(iEditarImg2)
+        iEditarImg.setAttribute('class', "fa-solid fa-image");
         //botonEditarImg.appendChild(iEditarImg)
 
         let inputImg = document.createElement("input");

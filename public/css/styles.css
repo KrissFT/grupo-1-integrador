@@ -388,18 +388,13 @@ th {
     text-decoration: none;
 }
 
-.fa-solid, .fa-regular {
+.fa-solid {
     width: 2rem;
     height: 2rem;
     padding-top: 0.5rem;
+    background-color: black
 }
 
-.fa-circle {
-    color: black;
-}
-input[type="file"] {
-    display: none;
-}
 label {
     cursor: pointer;
     display: block;
