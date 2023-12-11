@@ -43,8 +43,46 @@ async function cargarProductos(){
         botonEditarImg.setAttribute('title','Editar imagen')
         botonEditarImg.setAttribute('type', 'button')
         let iEditarImg = document.createElement('i');
-        iEditarImg.setAttribute("class", "fa-solid fa-image");
-        botonEditarImg.appendChild(iEditarImg)
+        iEditarImg.setAttribute('class', 'fa-stack')
+        let iEditarImg1 = document.createElement('i')
+        iEditarImg1.setAttribute('class', 'fas fa-circle fa-stack-2x')
+        let iEditarImg2 = document.createElement('i')
+        iEditarImg2.setAttribute("class", "fas fa-solid fa-image fa-stack-1x fa-inverse");
+        iEditarImg.appendChild(iEditarImg1)
+        iEditarImg.appendChild(iEditarImg2)
+        //botonEditarImg.appendChild(iEditarImg)
+
+        let inputImg = document.createElement("input");
+        inputImg.setAttribute("name", "image");
+        inputImg.setAttribute("type", "file");
+        inputImg.style.display = "none";
+        inputImg.setAttribute("id", "image-input-"+product.id);
+        inputImg.addEventListener("change", async() => {
+            let formData = new FormData();
+            formData.append("image",inputImg.files[0])
+
+            await fetch('/api/productos/'+product.id, {
+                method: "PATCH",
+                //headers:{
+                //    "Content-Type": "application/json" // formencode
+                //},
+                body: formData
+            })
+            cargarProductos();
+        })
+        
+
+        let labelImg = document.createElement("label");
+        labelImg.setAttribute("for", "image-input-"+product.id)
+        
+
+        labelImg.appendChild(iEditarImg)
+        labelImg.appendChild(inputImg)
+        //labelImg.appendChild(inputImg)
+        //labelImg.appendChild(botonEditarImg)
+        //botonEditarImg.appendChild(labelImg);
+        //botonEditarImg.appendChild(inputImg);
+
         let botonEliminar = document.createElement('button')
         botonEliminar.setAttribute('class','btn btn-secondary')
         botonEliminar.setAttribute('title','Eliminar producto')
@@ -53,7 +91,7 @@ async function cargarProductos(){
         iBorrar.setAttribute("class", "fa-solid fa-trash");
         botonEliminar.appendChild(iBorrar)
         overlay.appendChild(botonEditar)
-        overlay.appendChild(botonEditarImg)
+        overlay.appendChild(labelImg)
         overlay.appendChild(botonEliminar)
 
         let img = document.createElement("img");

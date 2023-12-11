@@ -388,9 +388,26 @@ th {
     text-decoration: none;
 }
 
-.fa-solid {
-    background-color: black;
+.fa-solid, .fa-regular {
     width: 2rem;
     height: 2rem;
     padding-top: 0.5rem;
+}
+
+.fa-circle {
+    color: black;
+}
+input[type="file"] {
+    display: none;
+}
+label {
+    cursor: pointer;
+    display: block;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }
