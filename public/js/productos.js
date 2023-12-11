@@ -16,6 +16,8 @@ async function cargarProductos(){
     let categories = await data.json();
     console.log(categories)
 
+    let h1 = document.querySelector("#titulo")
+    h1.innerHTML = categoryProducts.name.toUpperCase()
     let ul = document.querySelector("div#productos");
     ul.innerHTML = "";
 
@@ -41,7 +43,7 @@ async function cargarProductos(){
         botonEditarImg.setAttribute('title','Editar imagen')
         botonEditarImg.setAttribute('type', 'button')
         let iEditarImg = document.createElement('i');
-        iEditarImg.setAttribute("class", "fa-solid fa-pen");
+        iEditarImg.setAttribute("class", "fa-solid fa-image");
         botonEditarImg.appendChild(iEditarImg)
         let botonEliminar = document.createElement('button')
         botonEliminar.setAttribute('class','btn btn-secondary')
@@ -79,54 +81,6 @@ async function cargarProductos(){
 
 
     return categoryProducts;
-}
-
-async function cargarProductosCliente(){
-    let data = await fetch('/api/productos');
-    console.log(data)
-    let products = await data.json();
-    console.log(products)
-
-    data = await fetch('/api/categorias');
-    console.log(data)
-    let categories = await data.json();
-    console.log(categories)
-
-    let ul = document.querySelector("ul#productos");
-    ul.innerHTML = "";
-    
-    products.forEach(function(product){
-        let li = document.createElement('li');
-
-        let img = document.createElement("img");
-        img.src = "/img/products/"+product.image;
-        li.appendChild(img);
-
-        // ID
-        let spanId = document.createElement('span');
-        spanId.innerHTML = `${product.id} - `;
-        li.appendChild(spanId);
-        
-        // Nombre
-        let spanName = document.createElement('span');
-        spanName.innerHTML = product.name;
-        li.appendChild(spanName);
-
-        // Precio
-        let spanPrice = document.createElement('span');
-        spanPrice.innerHTML = ` $${product.price}`;
-        li.appendChild(spanPrice);
-
-        // Categoría
-        let spanCategory = document.createElement('span');
-        spanCategory.innerHTML = ` ${product.Category.name}`;
-        li.appendChild(spanCategory);
-
-        ul.appendChild(li);
-    })
-
-
-    return products;
 }
 
 window.addEventListener("load", async()=>{

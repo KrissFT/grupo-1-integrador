@@ -387,3 +387,10 @@ th {
     cursor: pointer;
     text-decoration: none;
 }
+
+.fa-solid {
+    background-color: black;
+    width: 2rem;
+    height: 2rem;
+    padding-top: 0.5rem;
+}
