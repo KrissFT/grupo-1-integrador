@@ -136,7 +136,7 @@ async function cargarProductos(){
         let buttonBoton = document.createElement('button')
         let aBoton = document.createElement('a')
         aBoton.setAttribute('class', 'pan')
-        aBoton.setAttribute('href', '/panaderia')
+        aBoton.setAttribute('href', `/${category.name}`)
         aBoton.innerHTML = 'Catálogo'
         buttonBoton.appendChild(aBoton)
         hBoton.appendChild(buttonBoton)
