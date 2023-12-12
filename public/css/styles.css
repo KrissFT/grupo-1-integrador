@@ -358,7 +358,7 @@ h1 {
     text-align: center;
 }
 
-.form {
+#form {
     text-align: center;
 }
 .claseFormulario {
@@ -377,7 +377,7 @@ th {
     margin: 0 auto;
 }
 
-.form button{
+#form button{
     width: 150px;
     height: 32px;
     letter-spacing: 3px;
@@ -405,4 +405,21 @@ label {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+}
+
+.col-md-3.py-3.py-md-0 {
+    margin-bottom: 1rem;
+}
+
+.col-md-3.py-3.py-md-0.boton {
+    padding: 10%;
+    margin-top: 10%;
+    color:white;
+    text-align: center;
+}
+
+.i-img {
+    color:white;
+    text-align: center;
+    margin-left: -1rem;
 }
