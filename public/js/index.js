@@ -12,7 +12,7 @@ async function cargarProductos(){
     let muestra = document.querySelector("#muestra")
     console.log(products.reverse())
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
         let col = document.createElement('div')
         col.setAttribute('class', "col-md-3 py-3 py-md-0")
         
@@ -35,7 +35,7 @@ async function cargarProductos(){
         cardBody.appendChild(hPrecio)
 
         card.appendChild(img)
-        card.appendChild(cardBody)
+        //card.appendChild(cardBody)
         col.appendChild(card)
 
         muestra.appendChild(col)
@@ -207,4 +207,6 @@ async function cargarProductos(){
 window.addEventListener("load", async()=>{
     let products = await cargarProductos();
     console.log(products);
+    const loaderContainer = document.querySelector('.loader-container');
+    loaderContainer.parentElement.removeChild(loaderContainer);
 })

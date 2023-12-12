@@ -374,4 +374,6 @@ async function cargarProductos(){
 window.addEventListener("load", async()=>{
     let products = await cargarProductos();
     console.log(products);
+    const loaderContainer = document.querySelector('.loader-container');
+    loaderContainer.parentElement.removeChild(loaderContainer);
 })
