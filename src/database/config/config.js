@@ -16,10 +16,11 @@ module.exports =
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "lafer",
+    "password": "l-a-r-f",
+    "database": "lafer_db",
+    "host": "mysql-lafer.alwaysdata.net",
+    "dialect": "mysql",
+    "port": 3306
   }
 }
