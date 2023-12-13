@@ -5,10 +5,10 @@
     font-family: 'Uchen', serif;
 }
 .all-content{
-    background: #a39e99;
+    background: hsl(0, 0%, 93%);
 }
 #navbar{
-    background-color: #6d0303;
+    background-color: #ec1e28;
     padding-left: 60px;
     font-weight: bold;
 }
@@ -23,14 +23,14 @@
     margin-left: 10px;
 }
 .nav-link{
-    color: white;
+    color: rgb(212, 212, 212);
     font-weight: bold;
     text-shadow: 1px 1px 1px black;
     margin-left: 15px;
     transition: 0.5s ease;
 }
 .nav-link:hover{
-    background-color: rgba(161,109,14,1);
+    background-color: rgb(245, 44, 44);
     color: white;
     border-radius: 5px;
 }
@@ -81,7 +81,7 @@
 }
 .changecontent::after{
     content: ' ';
-    color: rgb(228, 111, 15);
+    color: rgb(255, 62, 62);
     animation: changetext 10s infinite linear;
     font-weight: bold;
 }
@@ -94,14 +94,14 @@
 .content .btn{
     width: 110px;
     height: 38px;
-    background-color: #573818;
+    background-color: #fc3030;
     color: white;
 }
 #box{
     margin-top: 50px;
 }
 #box .card{
-    box-shadow: 0px 0px 5px black;
+    box-shadow: 0px 0px 5px rgb(255, 254, 254);
     margin-top: 10px;
     transition: 0.5s ease;
     cursor: pointer;
@@ -111,12 +111,13 @@
 }
 .banner{
     width: 100%;
+    height: 60vh;
     display: flex;
     background-size: cover;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    box-shadow: 0px 0px 10px black;
+    box-shadow: 0px 0px 10px rgb(228, 228, 228);
     margin-top: 50px;
 }
 .banner .img{
@@ -131,23 +132,23 @@
     margin-top: 60px;
 }
 .banner .content h3{
-    color: rgba(161,109,14,1);
+    color: rgb(252, 41, 41);
     font-weight: bold;
 }
 .banner .content h2{
     font-size: 50px;
-    color: rgba(161,109,14,1);
+    color: rgb(250, 53, 53);
     font-weight: bold;
-    text-shadow: 1px 1px 1px black;
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
 }
 .banner .content p{
-    color: rgba(161,109,14,1);
+    color: rgb(236, 46, 46);
 }
 #btnorder button{
     width: 150px;
     height: 32px;
     letter-spacing: 5px;
-    background-color: rgba(161,109,14,1);
+    background-color: rgb(230, 54, 54);
     color: white;
     border: none;
     border-radius: 5px;
@@ -157,13 +158,13 @@
     text-align: center;
     font-weight: bold;
     margin-top: 50px;
-    color: rgba(161,109,14,1);
-    text-shadow: 1px 1px 1px black;
-    border-bottom: 2px solid rgba(161,109,14,1);
+    color: rgb(247, 42, 42);
+    text-shadow: 1px 1px 1px rgb(255, 247, 247);
+    border-bottom: 2px solid rgb(226, 226, 226);
 }
 #product-cards .card{
-    background-color: rgba(161,109,14,1);
-    box-shadow: 0 0 3px black;
+    background-color: rgb(247, 71, 71);
+    box-shadow: 0 0 3px rgb(245, 244, 244);
     border-radius: 5px;
     cursor: pointer;
 }
@@ -181,7 +182,7 @@
     transition: 0.5s ease;
 }
 .overlay i img{
-    background-color: #2e1700;
+    background-color: #fc4646;
     height: 30px;
     width: 30px;
     font-size: 20px;
@@ -197,11 +198,11 @@
 }
 #product-cards h3{
     color: white;
-    text-shadow: 1px 1px 1px black;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
 
 #product-cards p{
-    color: #2e1700;
+    color: #fafafa;
     font-weight: bold;
 }
 #product-cards h6{
@@ -215,7 +216,7 @@
     font-size: 15px;
     background: transparent;
     letter-spacing: 3px;
-    border: 2px solid #573818;
+    border: 2px solid #ff3a3a;
     border-radius: 5px;
     float: none;
     font-weight: bold;
@@ -223,7 +224,7 @@
     cursor: pointer;
 }
 #product-cards h6  button:hover{
-    background-color: #6e3a05;
+    background-color: #ff2424;
     color: white;
 }
 #about{
@@ -233,24 +234,24 @@
     text-align: center;
     font-weight: bold;
     margin-top: 50px;
-    color: rgba(161,109,14,1);
-    text-shadow: 1px 1px 1px black;
-    border-bottom: 2px solid rgba(161,109,14,1);
+    color: rgb(248, 46, 46);
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(255, 59, 59);
 }
 #about .card{
-    background-color: rgba(161,109,14,1);
-    box-shadow: 0px 0px 5px black;
+    background-color: rgb(253, 49, 49);
+    box-shadow: 0px 0px 5px rgb(255, 255, 255);
 }
 #about p{
-    color: rgba(161,109,14,1);
-    text-shadow: 1px 1px 1px black;
+    color: rgb(255, 55, 55);
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
     font-weight: bold;
 }
 #bt button{
     width: 150px;
     height: 32px;
     letter-spacing: 3px;
-    background-color: rgba(161,109,14,1);
+    background-color: rgb(250, 60, 60);
     color: white;
     border: none;
     cursor: pointer;
@@ -262,18 +263,18 @@
     text-align: center;
     font-weight: bold;
     margin-top: 50px;
-    color: rgba(161,109,14,1);
-    text-shadow: 1px 1px 1px black;
-    border-bottom: 2px solid rgba(161,109,14,1);
+    color: rgb(253, 65, 65);
+    text-shadow: 1px 1px 1px rgb(253, 253, 253);
+    border-bottom: 2px solid rgb(240, 240, 240);
 }
 #contact input{
-    background-color: rgba(161,109,14,1);
+    background-color: rgb(253, 54, 54);
 }
 #contact input::placeholder{
-    color: white;
+    color: rgb(255, 255, 255);
 }
 #contact textarea{
-    background-color: rgba(161,109,14,1);
+    background-color: rgb(255, 255, 255);
 }
 #contact textarea::placeholder{
     color: white;
@@ -293,16 +294,16 @@
     cursor: pointer;
 }
 #messagebtn button:hover{
-    background-color: rgba(161,109,14,1);
+    background-color: rgb(248, 247, 247);
 }
 #footer{
     width: 100%;    
-    background-color: #573818;
-    box-shadow: 0px 0px 5px black;
+    background-color: #f83c3c;
+    box-shadow: 0px 0px 5px rgb(255, 255, 255);
     margin-top: 100px;
 }
 #footer h1{
-    color: white;
+    color: rgb(255, 255, 255);
     padding-top: 30px;
 }
 #footer p{
@@ -310,7 +311,7 @@
 }
 .icons i{
     background-color: white;
-    color: #573818;
+    color: #ff4747;
     border-radius: 50px;
     padding: 6px;
     font-size: 30px;
@@ -318,7 +319,7 @@
     cursor: pointer;
 }
 .icons i:hover{
-    background-color: rgba(161,109,14,1);
+    background-color: rgb(255, 56, 56);
     color: white;
 }
 .copyright{
@@ -333,7 +334,7 @@ html{
 }
 .arrow{
     position: fixed;
-    background-color: rgba(161,109,14,1);
+    background-color: rgb(219, 68, 41);
     border-radius: 50px;
     height: 50px;
     bottom: 40px;
@@ -357,7 +358,7 @@ h1 {
     text-align: center;
 }
 
-#form {
+form {
     text-align: center;
 }
 .claseFormulario {
@@ -369,18 +370,18 @@ td,
 th {
     text-align: center;
     padding: 10px;
-    border: solid #6d0303;
+    border: solid #dd2727;
 }
 
 .tableFormat table {
     margin: 0 auto;
 }
 
-#form button{
+.form button{
     width: 150px;
     height: 32px;
     letter-spacing: 3px;
-    background-color: #573818;
+    background-color: #d43030;
     color: rgb(255, 255, 255);
     border: none;
     cursor: pointer;
@@ -399,12 +400,6 @@ label {
     display: block;
 }
 
-.custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-}
 
 .col-md-3.py-3.py-md-0 {
     margin-bottom: 1rem;
